@@ -1,0 +1,21 @@
+// Thêm hiệu ứng di chuyển trái tim
+const hearts = document.querySelectorAll(".hearts span");
+
+setInterval(() => {
+    hearts.forEach((heart, index) => {
+        heart.style.transform = translateY(${Math.random() * 20 - 10}px);
+        heart.style.transition = "transform 0.5s";
+    });
+}, 1000);
+// Hiệu ứng pháo hoa
+document.addEventListener("click", (e) => {
+    const firework = document.createElement("div");
+    firework.className = "firework";
+    firework.style.left = ${e.clientX}px;
+    firework.style.top = ${e.clientY}px;
+    document.body.appendChild(firework);
+
+    setTimeout(() => {
+        firework.remove();
+    }, 1000); // Xóa pháo hoa sau 1 giây
+});
